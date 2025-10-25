@@ -3,16 +3,19 @@
 ## 5-Minute Setup
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Configure Environment
+
 ```bash
 cp .env.example .env.local
 ```
 
 ### 3. Start Development Server
+
 ```bash
 npm run dev
 ```
@@ -72,17 +75,20 @@ npm run generate:test-data  # Generate test data
 ## Troubleshooting
 
 **Port 3000 already in use?**
+
 ```bash
 npm run dev -- -p 3001
 ```
 
 **Dependencies not installing?**
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 **TypeScript errors?**
+
 ```bash
 npm run type-check
 ```
@@ -92,4 +98,7 @@ npm run type-check
 - Check documentation in \`docs/\` directory
 - Review existing issues on GitHub
 - Create a new issue with details
+
+```
+
 ```

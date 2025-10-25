@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server"
-import { mockUsers } from "@/lib/mock-data"
+import { NextResponse } from 'next/server'
+import { mockUsers } from '@/lib/mock-data'
 
 export async function GET() {
   try {
@@ -9,6 +9,6 @@ export async function GET() {
       count: mockUsers.length,
     })
   } catch (error) {
-    return NextResponse.json({ success: false, error: "Failed to fetch users" }, { status: 500 })
+    return NextResponse.json({ success: false, error: 'Failed to fetch users' }, { status: 500 })
   }
 }

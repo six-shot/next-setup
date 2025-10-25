@@ -5,7 +5,7 @@
  * When integrating with a real auth system, replace these with actual implementations.
  */
 
-import crypto from "crypto"
+import crypto from 'crypto'
 
 /**
  * Hash a password using a simple algorithm
@@ -13,7 +13,7 @@ import crypto from "crypto"
  */
 export function hashPassword(password: string): string {
   // TODO: Replace with bcrypt in production
-  return crypto.createHash("sha256").update(password).digest("hex")
+  return crypto.createHash('sha256').update(password).digest('hex')
 }
 
 /**
@@ -28,7 +28,7 @@ export function verifyPassword(password: string, hash: string): boolean {
  * Generate a secure token
  */
 export function generateToken(): string {
-  return crypto.randomBytes(32).toString("hex")
+  return crypto.randomBytes(32).toString('hex')
 }
 
 /**
@@ -54,7 +54,7 @@ export function isStrongPassword(password: string): boolean {
 export function extractUserFromToken(token: string): { userId: string } | null {
   try {
     // TODO: Replace with actual JWT verification
-    const decoded = Buffer.from(token.split(".")[1], "base64").toString()
+    const decoded = Buffer.from(token.split('.')[1], 'base64').toString()
     return JSON.parse(decoded)
   } catch {
     return null

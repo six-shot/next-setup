@@ -1,9 +1,9 @@
-import type { Metadata } from "next"
-import { LoginForm } from "@/components/auth/login-form"
+import type { Metadata } from 'next'
+import { LoginForm } from '@/components/auth/login-form'
 
 export const metadata: Metadata = {
-  title: "Login",
-  description: "Login to your account",
+  title: 'Login',
+  description: 'Login to your account',
 }
 
 export default function LoginPage() {
@@ -16,7 +16,7 @@ export default function LoginPage() {
         </div>
         <LoginForm />
         <p className="text-center text-sm text-muted-foreground mt-6">
-          Don't have an account?{" "}
+          Don't have an account?{' '}
           <a href="/auth/signup" className="text-primary hover:underline">
             Sign up
           </a>

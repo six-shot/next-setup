@@ -18,7 +18,7 @@ const rateLimitStore = new Map<string, RateLimitEntry>()
 export function isRateLimited(
   key: string,
   limit = 100,
-  windowMs = 60000, // 1 minute
+  windowMs = 60000 // 1 minute
 ): boolean {
   const now = Date.now()
   const entry = rateLimitStore.get(key)

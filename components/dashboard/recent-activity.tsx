@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { Card } from "@/components/ui/card"
-import { mockActivityLog } from "@/lib/mock-data"
+import { Card } from '@/components/ui/card'
+import { mockActivityLog } from '@/lib/mock-data'
 
 export function RecentActivity() {
   return (

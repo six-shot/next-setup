@@ -1,14 +1,14 @@
-"use client"
+'use client'
 
-import Link from "next/link"
+import Link from 'next/link'
 
 const sections = [
-  { id: "overview", label: "Overview" },
-  { id: "architecture", label: "Architecture" },
-  { id: "setup", label: "Setup Guide" },
-  { id: "api", label: "API Reference" },
-  { id: "deployment", label: "Deployment" },
-  { id: "maintenance", label: "Maintenance" },
+  { id: 'overview', label: 'Overview' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'setup', label: 'Setup Guide' },
+  { id: 'api', label: 'API Reference' },
+  { id: 'deployment', label: 'Deployment' },
+  { id: 'maintenance', label: 'Maintenance' },
 ]
 
 export function DocumentationNav() {

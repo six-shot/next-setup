@@ -57,12 +57,14 @@ This document provides a comprehensive overview of the application architecture,
 **Location:** \`app/\`, \`components/\`
 
 **Responsibilities:**
+
 - Render UI components
 - Handle user interactions
 - Manage client-side state
 - Format data for display
 
 **Key Files:**
+
 - \`app/page.tsx\` - Home page
 - \`app/dashboard/page.tsx\` - Dashboard page
 - \`components/dashboard/\` - Dashboard components
@@ -73,12 +75,14 @@ This document provides a comprehensive overview of the application architecture,
 **Location:** \`app/api/\`
 
 **Responsibilities:**
+
 - Handle HTTP requests
 - Route requests to appropriate handlers
 - Validate input
 - Format responses
 
 **Key Files:**
+
 - \`app/api/health/route.ts\` - Health check endpoint
 - \`app/api/users/route.ts\` - User endpoints
 
@@ -87,12 +91,14 @@ This document provides a comprehensive overview of the application architecture,
 **Location:** \`lib/\`
 
 **Responsibilities:**
+
 - Implement business rules
 - Process data
 - Validate data
 - Orchestrate operations
 
 **Key Files:**
+
 - \`lib/types.ts\` - TypeScript types
 - \`lib/constants.ts\` - Application constants
 - \`lib/mock-data.ts\` - Mock data for development
@@ -102,6 +108,7 @@ This document provides a comprehensive overview of the application architecture,
 **Location:** \`lib/db/\` (when database is integrated)
 
 **Responsibilities:**
+
 - Execute database queries
 - Transform data
 - Manage connections
@@ -126,6 +133,7 @@ Components are built using composition for reusability and maintainability.
 ### 2. Server Components
 
 Leverage Next.js 15 server components for:
+
 - Data fetching
 - Sensitive operations
 - Reduced client-side JavaScript
@@ -169,6 +177,7 @@ try {
 ## Technology Stack
 
 ### Frontend
+
 - **React 19** - UI library
 - **Next.js 15** - React framework with App Router
 - **TypeScript** - Type safety
@@ -176,16 +185,19 @@ try {
 - **shadcn/ui** - Component library
 
 ### Backend
+
 - **Next.js API Routes** - Serverless functions
 - **Server Actions** - Direct database mutations
 - **Node.js** - Runtime
 
 ### Development
+
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 - **TypeScript** - Type checking
 
 ### Testing
+
 - **Jest** - Testing framework
 - **React Testing Library** - Component testing
 - **Playwright** - E2E testing
@@ -193,16 +205,19 @@ try {
 ## Scalability Considerations
 
 ### Horizontal Scaling
+
 - Stateless API design
 - Database connection pooling
 - Caching strategies
 
 ### Vertical Scaling
+
 - Code splitting
 - Image optimization
 - Bundle size optimization
 
 ### Performance
+
 - Server-side rendering
 - Static generation
 - Incremental static regeneration
@@ -210,16 +225,19 @@ try {
 ## Security Considerations
 
 ### Authentication
+
 - Session management
 - Token-based auth
 - Secure cookies
 
 ### Authorization
+
 - Role-based access control
 - Permission checking
 - Resource-level security
 
 ### Data Protection
+
 - Input validation
 - SQL injection prevention
 - XSS protection
@@ -228,16 +246,19 @@ try {
 ## Deployment Architecture
 
 ### Development
+
 - Local development server
 - Hot module reloading
 - Mock data
 
 ### Staging
+
 - Pre-production environment
 - Full testing
 - Performance validation
 
 ### Production
+
 - Optimized builds
 - CDN distribution
 - Monitoring and logging

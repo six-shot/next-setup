@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 export function DocumentationContent() {
   return (
@@ -6,8 +6,8 @@ export function DocumentationContent() {
       <section id="overview">
         <h2 className="text-2xl font-bold mb-4">Overview</h2>
         <p className="text-muted-foreground mb-4">
-          This is a production-ready Next.js 15 fullstack application built with modern best practices for scalability,
-          security, and maintainability.
+          This is a production-ready Next.js 15 fullstack application built with modern best
+          practices for scalability, security, and maintainability.
         </p>
       </section>
 

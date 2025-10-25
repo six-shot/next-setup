@@ -5,8 +5,8 @@
  * These are placeholder implementations that will be replaced with actual database calls.
  */
 
-import type { UserRecord, ActivityRecord } from "./schema"
-import { mockUsers, mockActivityLog } from "@/lib/mock-data"
+import type { UserRecord, ActivityRecord } from './schema'
+import { mockUsers, mockActivityLog } from '@/lib/mock-data'
 
 /**
  * User Queries
@@ -54,7 +54,9 @@ export async function getAllUsers(): Promise<UserRecord[]> {
   }))
 }
 
-export async function createUser(data: Omit<UserRecord, "id" | "created_at" | "updated_at">): Promise<UserRecord> {
+export async function createUser(
+  data: Omit<UserRecord, 'id' | 'created_at' | 'updated_at'>
+): Promise<UserRecord> {
   // TODO: Replace with actual database query
   const newUser: UserRecord = {
     id: Math.random().toString(36).substr(2, 9),
@@ -67,7 +69,7 @@ export async function createUser(data: Omit<UserRecord, "id" | "created_at" | "u
 
 export async function updateUser(
   id: string,
-  data: Partial<Omit<UserRecord, "id" | "created_at">>,
+  data: Partial<Omit<UserRecord, 'id' | 'created_at'>>
 ): Promise<UserRecord | null> {
   // TODO: Replace with actual database query
   const user = await getUserById(id)
@@ -92,14 +94,16 @@ export async function getActivityLog(limit = 10): Promise<ActivityRecord[]> {
   // TODO: Replace with actual database query
   return mockActivityLog.slice(0, limit).map((activity, idx) => ({
     id: idx.toString(),
-    user_id: "1",
+    user_id: '1',
     action: activity.action,
-    resource_type: "general",
+    resource_type: 'general',
     created_at: new Date().toISOString(),
   }))
 }
 
-export async function createActivityLog(data: Omit<ActivityRecord, "id" | "created_at">): Promise<ActivityRecord> {
+export async function createActivityLog(
+  data: Omit<ActivityRecord, 'id' | 'created_at'>
+): Promise<ActivityRecord> {
   // TODO: Replace with actual database query
   return {
     id: Math.random().toString(36).substr(2, 9),

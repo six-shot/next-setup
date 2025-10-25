@@ -15,12 +15,12 @@ export interface ValidationError {
 export function validateUserInput(data: Record<string, unknown>): ValidationError[] {
   const errors: ValidationError[] = []
 
-  if (!data.name || typeof data.name !== "string" || data.name.trim().length === 0) {
-    errors.push({ field: "name", message: "Name is required" })
+  if (!data.name || typeof data.name !== 'string' || data.name.trim().length === 0) {
+    errors.push({ field: 'name', message: 'Name is required' })
   }
 
-  if (!data.email || typeof data.email !== "string" || !isValidEmail(data.email)) {
-    errors.push({ field: "email", message: "Valid email is required" })
+  if (!data.email || typeof data.email !== 'string' || !isValidEmail(data.email)) {
+    errors.push({ field: 'email', message: 'Valid email is required' })
   }
 
   return errors
@@ -39,8 +39,8 @@ export function isValidEmail(email: string): boolean {
  */
 export function sanitizeString(input: string): string {
   return input
-    .replace(/[<>]/g, "") // Remove angle brackets
-    .replace(/[&]/g, "&amp;") // Escape ampersands
+    .replace(/[<>]/g, '') // Remove angle brackets
+    .replace(/[&]/g, '&amp;') // Escape ampersands
     .trim()
 }
 
@@ -48,8 +48,8 @@ export function sanitizeString(input: string): string {
  * Validate pagination parameters
  */
 export function validatePagination(page?: unknown, limit?: unknown) {
-  const pageNum = typeof page === "string" ? Number.parseInt(page, 10) : 1
-  const limitNum = typeof limit === "string" ? Number.parseInt(limit, 10) : 10
+  const pageNum = typeof page === 'string' ? Number.parseInt(page, 10) : 1
+  const limitNum = typeof limit === 'string' ? Number.parseInt(limit, 10) : 10
 
   return {
     page: Math.max(1, pageNum),

@@ -10,7 +10,7 @@ export interface UserRecord {
   name: string
   email: string
   password_hash?: string
-  role: "admin" | "user"
+  role: 'admin' | 'user'
   created_at: string
   updated_at: string
 }

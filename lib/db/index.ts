@@ -4,8 +4,8 @@
  * Central export point for all database-related functions and types.
  */
 
-export * from "./schema"
-export * from "./queries"
+export * from './schema'
+export * from './queries'
 
 /**
  * Database Connection Configuration
@@ -26,5 +26,5 @@ export * from "./queries"
 // Placeholder for database connection
 export const db = {
   isConnected: false,
-  connectionString: process.env.DATABASE_URL || "mock",
+  connectionString: process.env.DATABASE_URL || 'mock',
 }

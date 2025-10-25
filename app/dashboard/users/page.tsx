@@ -1,9 +1,9 @@
-import type { Metadata } from "next"
-import { UserList } from "@/components/dashboard/user-list"
+import type { Metadata } from 'next'
+import { UserList } from '@/components/dashboard/user-list'
 
 export const metadata: Metadata = {
-  title: "Users",
-  description: "Manage users",
+  title: 'Users',
+  description: 'Manage users',
 }
 
 export default function UsersPage() {

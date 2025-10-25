@@ -5,11 +5,11 @@
  * Run with: npm run test:e2e
  */
 
-import { describe, it } from "@jest/globals"
+import { describe, it } from '@jest/globals'
 
-describe("Authentication Flow", () => {
-  describe("Login", () => {
-    it("should login with valid credentials", async () => {
+describe('Authentication Flow', () => {
+  describe('Login', () => {
+    it('should login with valid credentials', async () => {
       // TODO: Implement with Playwright or similar
       // 1. Navigate to login page
       // 2. Fill in credentials
@@ -17,7 +17,7 @@ describe("Authentication Flow", () => {
       // 4. Verify redirect to dashboard
     })
 
-    it("should show error with invalid credentials", async () => {
+    it('should show error with invalid credentials', async () => {
       // TODO: Implement with Playwright or similar
       // 1. Navigate to login page
       // 2. Fill in invalid credentials
@@ -26,8 +26,8 @@ describe("Authentication Flow", () => {
     })
   })
 
-  describe("Signup", () => {
-    it("should create new account", async () => {
+  describe('Signup', () => {
+    it('should create new account', async () => {
       // TODO: Implement with Playwright or similar
       // 1. Navigate to signup page
       // 2. Fill in form

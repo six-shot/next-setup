@@ -33,11 +33,13 @@ All responses follow a consistent format:
 Check if the API is running and healthy.
 
 **Request:**
+
 ```
 GET /api/health
 ```
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -51,11 +53,13 @@ GET /api/health
 Retrieve all users.
 
 **Request:**
+
 ```
 GET /api/users
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -85,6 +89,7 @@ Errors are returned with appropriate HTTP status codes:
 ## Rate Limiting
 
 Rate limiting will be implemented in production. Current limits:
+
 - 100 requests per minute per IP
 
 ## Versioning

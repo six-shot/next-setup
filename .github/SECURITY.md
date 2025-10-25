@@ -6,10 +6,10 @@ If you discover a security vulnerability, please email security@example.com inst
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x     | ✅ Supported       |
-| 0.x     | ❌ Not Supported   |
+| Version | Supported        |
+| ------- | ---------------- |
+| 1.x     | ✅ Supported     |
+| 0.x     | ❌ Not Supported |
 
 ## Security Updates
 

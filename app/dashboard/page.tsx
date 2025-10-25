@@ -1,11 +1,11 @@
-import type { Metadata } from "next"
-import { DashboardHeader } from "@/components/dashboard/dashboard-header"
-import { DashboardStats } from "@/components/dashboard/dashboard-stats"
-import { RecentActivity } from "@/components/dashboard/recent-activity"
+import type { Metadata } from 'next'
+import { DashboardHeader } from '@/components/dashboard/dashboard-header'
+import { DashboardStats } from '@/components/dashboard/dashboard-stats'
+import { RecentActivity } from '@/components/dashboard/recent-activity'
 
 export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Main dashboard view",
+  title: 'Dashboard',
+  description: 'Main dashboard view',
 }
 
 export default function DashboardPage() {

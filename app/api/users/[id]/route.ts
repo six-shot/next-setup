@@ -6,8 +6,8 @@
  * DELETE /api/users/[id] - Delete user
  */
 
-import { type NextRequest, NextResponse } from "next/server"
-import { getUserById, updateUser, deleteUser } from "@/lib/db"
+import { type NextRequest, NextResponse } from 'next/server'
+import { getUserById, updateUser, deleteUser } from '@/lib/db'
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const user = await getUserById(id)
 
     if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 })
+      return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     return NextResponse.json({
@@ -23,8 +23,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       data: user,
     })
   } catch (error) {
-    console.error("Error fetching user:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error('Error fetching user:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
@@ -38,7 +38,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     const updatedUser = await updateUser(id, body)
 
     if (!updatedUser) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 })
+      return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     return NextResponse.json({
@@ -46,12 +46,15 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
       data: updatedUser,
     })
   } catch (error) {
-    console.error("Error updating user:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error('Error updating user:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     const { id } = await params
 
@@ -60,15 +63,15 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
     const deleted = await deleteUser(id)
 
     if (!deleted) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 })
+      return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     return NextResponse.json({
       success: true,
-      message: "User deleted successfully",
+      message: 'User deleted successfully',
     })
   } catch (error) {
-    console.error("Error deleting user:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error('Error deleting user:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

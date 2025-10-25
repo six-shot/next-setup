@@ -4,10 +4,10 @@
  * Server-side functions for activity log operations.
  */
 
-"use server"
+'use server'
 
-import { revalidateTag } from "next/cache"
-import { getActivityLog, createActivityLog } from "@/lib/db"
+import { revalidateTag } from 'next/cache'
+import { getActivityLog, createActivityLog } from '@/lib/db'
 
 /**
  * Fetch activity logs
@@ -17,8 +17,8 @@ export async function fetchActivityLogs(limit = 10) {
     const activities = await getActivityLog(limit)
     return { success: true, data: activities }
   } catch (error) {
-    console.error("Error fetching activity logs:", error)
-    return { success: false, error: "Failed to fetch activity logs" }
+    console.error('Error fetching activity logs:', error)
+    return { success: false, error: 'Failed to fetch activity logs' }
   }
 }
 
@@ -42,11 +42,11 @@ export async function logActivity(data: {
     })
 
     // Revalidate cache
-    revalidateTag("activity")
+    revalidateTag('activity')
 
     return { success: true, data: activity }
   } catch (error) {
-    console.error("Error logging activity:", error)
-    return { success: false, error: "Failed to log activity" }
+    console.error('Error logging activity:', error)
+    return { success: false, error: 'Failed to log activity' }
   }
 }

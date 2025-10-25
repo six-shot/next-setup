@@ -1,43 +1,43 @@
-"use client"
+'use client'
 
-import type React from "react"
+import type React from 'react'
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function SignupForm() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setError("")
+    setError('')
     setLoading(true)
 
     try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
       })
 
       const data = await response.json()
 
       if (!response.ok) {
-        setError(data.error || "Signup failed")
+        setError(data.error || 'Signup failed')
         return
       }
 
       // TODO: Store token and redirect to dashboard
-      localStorage.setItem("token", data.token)
-      window.location.href = "/dashboard"
+      localStorage.setItem('token', data.token)
+      window.location.href = '/dashboard'
     } catch (err) {
-      setError("An error occurred. Please try again.")
+      setError('An error occurred. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -51,7 +51,9 @@ export function SignupForm() {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && <div className="p-3 bg-destructive/10 text-destructive rounded-md text-sm">{error}</div>}
+          {error && (
+            <div className="p-3 bg-destructive/10 text-destructive rounded-md text-sm">{error}</div>
+          )}
 
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium">
@@ -99,7 +101,7 @@ export function SignupForm() {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Creating account..." : "Sign Up"}
+            {loading ? 'Creating account...' : 'Sign Up'}
           </Button>
         </form>
       </CardContent>

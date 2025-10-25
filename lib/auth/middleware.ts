@@ -4,13 +4,13 @@
  * Middleware for protecting routes and validating authentication.
  */
 
-import { type NextRequest, NextResponse } from "next/server"
+import { type NextRequest, NextResponse } from 'next/server'
 
 /**
  * Verify authentication token
  */
 export function verifyAuth(request: NextRequest): boolean {
-  const token = request.headers.get("authorization")?.replace("Bearer ", "")
+  const token = request.headers.get('authorization')?.replace('Bearer ', '')
   // TODO: Implement actual token verification
   return !!token
 }
@@ -19,7 +19,7 @@ export function verifyAuth(request: NextRequest): boolean {
  * Get authenticated user from request
  */
 export function getAuthUser(request: NextRequest) {
-  const token = request.headers.get("authorization")?.replace("Bearer ", "")
+  const token = request.headers.get('authorization')?.replace('Bearer ', '')
   // TODO: Implement actual user extraction from token
   return null
 }
@@ -30,7 +30,7 @@ export function getAuthUser(request: NextRequest) {
 export function withAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
   return async (request: NextRequest) => {
     if (!verifyAuth(request)) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
     return handler(request)
   }
@@ -42,8 +42,8 @@ export function withAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
 export function withAdminAuth(handler: (req: NextRequest) => Promise<NextResponse>) {
   return async (request: NextRequest) => {
     const user = getAuthUser(request)
-    if (!user || user.role !== "admin") {
-      return NextResponse.json({ error: "Forbidden" }, { status: 403 })
+    if (!user || user.role !== 'admin') {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
     return handler(request)
   }

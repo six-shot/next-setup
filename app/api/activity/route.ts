@@ -5,14 +5,14 @@
  * POST /api/activity - Create activity log entry
  */
 
-import { type NextRequest, NextResponse } from "next/server"
-import { getActivityLog, createActivityLog } from "@/lib/db"
-import { validatePagination } from "@/lib/security/validation"
+import { type NextRequest, NextResponse } from 'next/server'
+import { getActivityLog, createActivityLog } from '@/lib/db'
+import { validatePagination } from '@/lib/security/validation'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
-    const { page, limit } = validatePagination(searchParams.get("page"), searchParams.get("limit"))
+    const { page, limit } = validatePagination(searchParams.get('page'), searchParams.get('limit'))
 
     // TODO: Verify authorization (admin only)
 
@@ -24,8 +24,8 @@ export async function GET(request: NextRequest) {
       pagination: { page, limit },
     })
   } catch (error) {
-    console.error("Error fetching activity:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error('Error fetching activity:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     // TODO: Verify authorization
 
     const activity = await createActivityLog({
-      user_id: body.userId || "unknown",
+      user_id: body.userId || 'unknown',
       action: body.action,
       resource_type: body.resourceType,
       resource_id: body.resourceId,
@@ -48,10 +48,10 @@ export async function POST(request: NextRequest) {
         success: true,
         data: activity,
       },
-      { status: 201 },
+      { status: 201 }
     )
   } catch (error) {
-    console.error("Error creating activity:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    console.error('Error creating activity:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

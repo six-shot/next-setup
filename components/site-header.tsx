@@ -1,59 +1,53 @@
-"use client";
+'use client'
 
-import { Menu, X } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import { Menu, X } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+} from '@/components/ui/navigation-menu'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 const NAV_LOGO = {
-  url: "",
-  src: "/placeholder-logo.svg",
-  alt: "logo",
-  title: "",
-};
+  url: '',
+  src: '/placeholder-logo.svg',
+  alt: 'logo',
+  title: '',
+}
 const NAV_ITEMS = [
-  { name: "Home", link: "/" },
-  { name: "Dashboard", link: "/dashboard" },
-  { name: "Documentation", link: "/docs" },
-  { name: "Github", link: "https://github.com/ibrahimraimi/next-setup" },
-];
+  { name: 'Home', link: '/' },
+  { name: 'Dashboard', link: '/dashboard' },
+  { name: 'Documentation', link: '/docs' },
+  { name: 'Github', link: 'https://github.com/ibrahimraimi/next-setup' },
+]
 
 const SiteHeader = () => {
-  const [activeItem, setActiveItem] = useState(NAV_ITEMS[0].name);
+  const [activeItem, setActiveItem] = useState(NAV_ITEMS[0].name)
 
-  const indicatorRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLUListElement>(null);
+  const indicatorRef = useRef<HTMLDivElement>(null)
+  const menuRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
     const updateIndicator = () => {
-      const activeEl = document.querySelector(
-        `[data-nav-item="${activeItem}"]`,
-      ) as HTMLElement;
+      const activeEl = document.querySelector(`[data-nav-item="${activeItem}"]`) as HTMLElement
 
       if (activeEl && indicatorRef.current && menuRef.current) {
-        const menuRect = menuRef.current.getBoundingClientRect();
-        const itemRect = activeEl.getBoundingClientRect();
+        const menuRect = menuRef.current.getBoundingClientRect()
+        const itemRect = activeEl.getBoundingClientRect()
 
-        indicatorRef.current.style.width = `${itemRect.width}px`;
-        indicatorRef.current.style.left = `${itemRect.left - menuRect.left}px`;
+        indicatorRef.current.style.width = `${itemRect.width}px`
+        indicatorRef.current.style.left = `${itemRect.left - menuRect.left}px`
       }
-    };
-    updateIndicator();
-    window.addEventListener("resize", updateIndicator);
+    }
+    updateIndicator()
+    window.addEventListener('resize', updateIndicator)
 
-    return () => window.removeEventListener("resize", updateIndicator);
-  }, [activeItem]);
+    return () => window.removeEventListener('resize', updateIndicator)
+  }, [activeItem])
 
   return (
     <section className="py-4">
@@ -61,9 +55,7 @@ const SiteHeader = () => {
         {/* Left WordMark */}
         <a href={NAV_LOGO.url} className="flex items-center gap-2">
           <img src={NAV_LOGO.src} className="max-h-30 w-30" alt={NAV_LOGO.alt} />
-          <span className="text-lg font-semibold tracking-tighter">
-            {NAV_LOGO.title}
-          </span>
+          <span className="text-lg font-semibold tracking-tighter">{NAV_LOGO.title}</span>
         </a>
 
         <NavigationMenu className="hidden lg:block">
@@ -79,9 +71,7 @@ const SiteHeader = () => {
                     href={item.link}
                     onClick={() => setActiveItem(item.name)}
                     className={`relative cursor-pointer text-sm font-medium hover:bg-transparent ${
-                      activeItem === item.name
-                        ? "text-foreground"
-                        : "text-muted-foreground"
+                      activeItem === item.name ? 'text-foreground' : 'text-muted-foreground'
                     }`}
                   >
                     {item.name}
@@ -103,10 +93,10 @@ const SiteHeader = () => {
         <MobileNav activeItem={activeItem} setActiveItem={setActiveItem} />
       </nav>
     </section>
-  );
-};
+  )
+}
 
-export { SiteHeader };
+export { SiteHeader }
 
 const AnimatedHamburger = ({ isOpen }: { isOpen: boolean }) => {
   return (
@@ -114,27 +104,27 @@ const AnimatedHamburger = ({ isOpen }: { isOpen: boolean }) => {
       <div className="absolute flex size-full items-center justify-center">
         <Menu
           className={`text-muted-foreground group-hover:text-foreground absolute size-6 transition-all duration-300 ${
-            isOpen ? "rotate-90 opacity-0" : "rotate-0 opacity-100"
+            isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
           }`}
         />
         <X
           className={`text-muted-foreground group-hover:text-foreground absolute size-6 transition-all duration-300 ${
-            isOpen ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"
+            isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'
           }`}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const MobileNav = ({
   activeItem,
   setActiveItem,
 }: {
-  activeItem: string;
-  setActiveItem: (item: string) => void;
+  activeItem: string
+  setActiveItem: (item: string) => void
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="block flex h-full items-center lg:hidden">
@@ -157,8 +147,8 @@ const MobileNav = ({
                   onClick={() => setActiveItem(navItem.name)}
                   className={`text-foreground flex items-center border-l-[3px] px-6 py-4 text-sm font-medium transition-all duration-75 ${
                     activeItem === navItem.name
-                      ? "border-foreground text-foreground"
-                      : "text-muted-foreground hover:text-foreground border-transparent"
+                      ? 'border-foreground text-foreground'
+                      : 'text-muted-foreground hover:text-foreground border-transparent'
                   }`}
                 >
                   {navItem.name}
@@ -169,5 +159,5 @@ const MobileNav = ({
         </PopoverContent>
       </Popover>
     </div>
-  );
-};
+  )
+}

@@ -5,10 +5,10 @@
  */
 
 export enum LogLevel {
-  DEBUG = "DEBUG",
-  INFO = "INFO",
-  WARN = "WARN",
-  ERROR = "ERROR",
+  DEBUG = 'DEBUG',
+  INFO = 'INFO',
+  WARN = 'WARN',
+  ERROR = 'ERROR',
 }
 
 export interface LogEntry {
@@ -23,7 +23,11 @@ export interface LogEntry {
 /**
  * Log security event
  */
-export function logSecurityEvent(level: LogLevel, message: string, metadata?: Record<string, unknown>): void {
+export function logSecurityEvent(
+  level: LogLevel,
+  message: string,
+  metadata?: Record<string, unknown>
+): void {
   const entry: LogEntry = {
     timestamp: new Date().toISOString(),
     level,
@@ -43,9 +47,9 @@ export function logSecurityEvent(level: LogLevel, message: string, metadata?: Re
  * Log authentication event
  */
 export function logAuthEvent(
-  action: "login" | "logout" | "signup" | "failed_login",
+  action: 'login' | 'logout' | 'signup' | 'failed_login',
   userId?: string,
-  metadata?: Record<string, unknown>,
+  metadata?: Record<string, unknown>
 ): void {
   logSecurityEvent(LogLevel.INFO, `Authentication: ${action}`, {
     userId,
@@ -56,7 +60,12 @@ export function logAuthEvent(
 /**
  * Log authorization event
  */
-export function logAuthorizationEvent(action: string, userId: string, resource: string, allowed: boolean): void {
+export function logAuthorizationEvent(
+  action: string,
+  userId: string,
+  resource: string,
+  allowed: boolean
+): void {
   logSecurityEvent(allowed ? LogLevel.INFO : LogLevel.WARN, `Authorization: ${action}`, {
     userId,
     resource,

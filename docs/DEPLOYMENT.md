@@ -24,6 +24,7 @@ Vercel is the recommended platform for Next.js applications.
 4. Deploy
 
 **Benefits:**
+
 - Zero-config deployment
 - Automatic HTTPS
 - Global CDN
@@ -35,6 +36,7 @@ Vercel is the recommended platform for Next.js applications.
 For self-hosted deployments:
 
 **Dockerfile:**
+
 ```dockerfile
 FROM node:20-alpine
 
@@ -52,6 +54,7 @@ CMD ["npm", "start"]
 ```
 
 **Build and Run:**
+
 ```bash
 docker build -t production-app .
 docker run -p 3000:3000 production-app
@@ -96,11 +99,13 @@ npm run migrate
 ## Monitoring
 
 ### Application Monitoring
+
 - Vercel Analytics
 - Custom logging
 - Error tracking
 
 ### Performance Monitoring
+
 - Core Web Vitals
 - Page load times
 - API response times
@@ -117,6 +122,7 @@ If deployment fails:
 ## CI/CD Pipeline
 
 GitHub Actions automatically:
+
 - Runs tests
 - Builds application
 - Deploys to staging

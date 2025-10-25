@@ -1,10 +1,10 @@
-import type { Metadata } from "next"
-import { DocumentationNav } from "@/components/docs/documentation-nav"
-import { DocumentationContent } from "@/components/docs/documentation-content"
+import type { Metadata } from 'next'
+import { DocumentationNav } from '@/components/docs/documentation-nav'
+import { DocumentationContent } from '@/components/docs/documentation-content'
 
 export const metadata: Metadata = {
-  title: "Documentation",
-  description: "Project documentation and guides",
+  title: 'Documentation',
+  description: 'Project documentation and guides',
 }
 
 export default function DocsPage() {
